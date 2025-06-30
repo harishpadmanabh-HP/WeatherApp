@@ -30,8 +30,9 @@ This file is **not committed to version control** (via `.gitignore`). Create it 
 | ![](screenshots/home_screen.png) | ![](screenshots/search.png) | ![](screenshots/weather.png) |
 
 ## 📸 Here it is !
-| ![](screenshots/recording.gif) | 
-
+<p align="center">
+  <img src="screenshots/recording.gif" width="400" />
+</p>
 
 
 
