@@ -1,4 +1,4 @@
-package com.hp.weatherapp.presentation.permissions
+package com.hp.weatherapp.presentation.utils
 
 import android.Manifest
 import androidx.compose.runtime.Composable
