@@ -23,8 +23,8 @@ OPENWEATHER_API_KEY=your_openweather_api_key
 
 ## 📸 Screenshots
 
-| Home | Search & Map | Weather Bottom Sheet         |
-|------|--------------|------------------------------|
-| ![](screenshots/home.png) | ![](screenshots/search.png) | ![](screenshots/weather.png) |
+| Home                             | Search & Map | Weather Bottom Sheet         |
+|----------------------------------|--------------|------------------------------|
+| ![](screenshots/home_screen.png) | ![](screenshots/search.png) | ![](screenshots/weather.png) |
 
 
