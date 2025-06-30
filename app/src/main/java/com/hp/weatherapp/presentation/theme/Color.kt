@@ -13,3 +13,7 @@ val Pink40 = Color(0xFF7D5260)
 val DarkBlue = Color(0xff141645)
 val White = Color(0xffffffff)
 val Yellow = Color(0xfffacc48)
+
+val Purple = Color(0xffd9deff)
+val Orange = Color(0xffff6b3d)
+val Grey = Color(0xff3a3347)

@@ -109,9 +109,10 @@ data class WeatherResultDTO(
 }
 
 fun String.toWeatherIconUrl(): String =
-    "https://openweathermap.org/img/wn/$this@2x.png"
+    "https://openweathermap.org/img/wn/${this.replace("n","d")}@2x.png"
 
 fun Double.toCelsius(): String = "${"%.1f".format(this)}°C"
+fun Double.toCelsiusWithoutUnit(): String = "%.1f".format(this)
 fun Int.toPercent(): String = "$this%"
 fun Int.toHpa(): String = "$this hPa"
 fun Int.toKm(): String = "${this / 1000} km"
@@ -133,7 +134,7 @@ fun WeatherResultDTO.toCurrentWeather(): CurrentWeather {
 
     return CurrentWeather(
         location = "$name, ${sys.country}",
-        temperature = main.temp.toCelsius(),
+        temperature = main.temp.toCelsiusWithoutUnit(),
         feelsLike = "Feels like ${main.feelsLike.toCelsius()}",
         tempRange = "Min ${main.tempMin.toCelsius()} / Max ${main.tempMax.toCelsius()}",
         pressure = main.pressure.toHpa(),

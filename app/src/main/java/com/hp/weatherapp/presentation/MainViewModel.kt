@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.google.android.gms.maps.model.LatLng
 import com.hp.weatherapp.domain.LocationUseCases
 import com.hp.weatherapp.domain.WeatherUseCases
+import com.hp.weatherapp.domain.models.CurrentLocation
 import com.hp.weatherapp.domain.models.CurrentWeather
 import com.hp.weatherapp.domain.models.LocationSearchResult
 import com.hp.weatherapp.presentation.utils.doIfFailure
@@ -47,7 +48,7 @@ class MainViewModel @Inject constructor(
 
     @OptIn(FlowPreview::class)
     val searchedLocations = searchText
-        .debounce { 1000L }
+        .debounce { 300L }
         .onEach { _isSearching.update { true } }
         .combine(_searchedLocations) { query, locations ->
             if (query.text.isBlank()) {
@@ -77,6 +78,9 @@ class MainViewModel @Inject constructor(
         _selectedLocationFromSearch.value = locationSearchResult
     }
 
+
+    private val _currentDeviceLocation = MutableStateFlow<CurrentLocation?>(null)
+    val currentDeviceLocation = _currentDeviceLocation.asStateFlow()
     fun fetchCurrentLocation(highAccuracy: Boolean = true) {
         viewModelScope.launch {
             locationUseCases.getCurrentLocation(highAccuracy)
@@ -88,7 +92,8 @@ class MainViewModel @Inject constructor(
                         ForeCastScreenState.OnError("Fetching device location failed due to ${it.localizedMessage}")
                 }
                 .collect { location ->
-                    _screenState.value = ForeCastScreenState.OnCurrentLocationFetched(location)
+                    _currentDeviceLocation.value = location
+                    _screenState.value = ForeCastScreenState.Idle
                 }
         }
     }
@@ -104,7 +109,8 @@ class MainViewModel @Inject constructor(
                         _screenState.value = ForeCastScreenState.Loading
                     }
                     doIfSuccess {
-                        _screenState.value = ForeCastScreenState.OnWeatherFetched(it)
+                        _screenState.value = ForeCastScreenState.Idle
+                        _fetchedWeather.value = it
                     }
                     doIfFailure {
                         _screenState.value =
@@ -115,5 +121,8 @@ class MainViewModel @Inject constructor(
         }
     }
 
+    fun clearFetchedWeather(){
+        _fetchedWeather.value = null
+    }
 
 }

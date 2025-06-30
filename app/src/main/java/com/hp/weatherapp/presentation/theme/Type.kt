@@ -36,5 +36,30 @@ val Typography = Typography(
         fontSize = 16.sp,
         fontFamily = FontFamily(Font(R.font.poppins_regular))
     ),
+    bodyLarge = TextStyle(
+        color = Purple,
+        fontSize = 64.sp,
+        fontFamily = FontFamily(Font(R.font.poppins_semibold))
+    ),
+    displayLarge = TextStyle(
+        color = Purple.copy(.7f),
+        fontSize = 28.sp,
+        fontFamily = FontFamily(Font(R.font.poppins_medium))
+    ),
+    displayMedium = TextStyle(
+        color = Purple.copy(.8f),
+        fontSize = 24.sp,
+        fontFamily = FontFamily(Font(R.font.poppins_medium))
+    ),
+    displaySmall = TextStyle(
+        color = Purple.copy(.8f),
+        fontSize = 16.sp,
+        fontFamily = FontFamily(Font(R.font.poppins_regular))
+    ),
+    labelSmall = TextStyle(
+        color = Purple.copy(.8f),
+        fontSize = 12.sp,
+        fontFamily = FontFamily(Font(R.font.poppins_regular))
+    ),
 
 )
