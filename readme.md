@@ -18,8 +18,10 @@ An Android application that displays weather forecasts using current location an
 ### 1️⃣ Create `secret.properties` in root of the project
 
 This file is **not committed to version control** (via `.gitignore`). Create it manually with the following:
-MAPS_API_KEY=your_maps_api_key
-OPENWEATHER_API_KEY=your_openweather_api_key
+
+- 🌍 MAPS_API_KEY=your_maps_api_key
+- 🗺️ OPENWEATHER_API_KEY=your_openweather_api_key
+
 
 ## 📸 Screenshots
 
