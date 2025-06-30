@@ -31,7 +31,7 @@ This file is **not committed to version control** (via `.gitignore`). Create it 
 
 ## 📸 Here it is !
 <p align="center">
-  <img src="screenshots/recording.gif" width="400" />
+  <img src="screenshots/recording.gif" width="200" />
 </p>
 
 
